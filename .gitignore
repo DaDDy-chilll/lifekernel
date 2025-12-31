@@ -1,0 +1,73 @@
+# ======================
+# OS / Editor
+# ======================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# ======================
+# Node / Package Managers
+# ======================
+node_modules/
+.pnpm-store/
+.npm/
+.yarn/
+.yarn-cache/
+.yarn-error.log
+npm-debug.log*
+pnpm-debug.log*
+
+# ======================
+# Environment files
+# ======================
+.env
+.env.*
+!.env.example
+
+# ======================
+# Build outputs
+# ======================
+dist/
+build/
+out/
+coverage/
+
+# ======================
+# Next.js
+# ======================
+.next/
+.vercel/
+
+# ======================
+# Vite
+# ======================
+.vite/
+
+# ======================
+# Expo / React Native
+# ======================
+.expo/
+.expo-shared/
+android/
+ios/
+*.keystore
+*.jks
+
+# ======================
+# Logs
+# ======================
+logs/
+*.log
+
+# ======================
+# Turborepo
+# ======================
+.turbo/
+
+# ======================
+# Misc
+# ======================
+.cache/
