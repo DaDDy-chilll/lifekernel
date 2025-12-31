@@ -15,7 +15,7 @@ Thank you for your interest in contributing to LifeKernel! This guide will help 
 
 1. **Fork the repository**
    ```bash
-   git clone <your-fork-url>
+   git clone https://github.com/DaDDy-chilll/lifekernel/
    cd LifeKernel
    ```
 
