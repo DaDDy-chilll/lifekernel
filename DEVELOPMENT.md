@@ -15,7 +15,7 @@ This guide provides detailed instructions for setting up and working with the Li
 
 ```bash
 # 1. Clone the repository
-git clone <repository-url>
+git clone https://github.com/DaDDy-chilll/lifekernel/
 cd LifeKernel
 
 # 2. Install PNPM (if not already installed)
