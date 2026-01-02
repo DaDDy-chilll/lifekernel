@@ -1,8 +1,8 @@
-"use client"
-import { ADMIN_DEFAULT_THEME } from "@acme/constants";
-import type { ColorTheme } from "@acme/types";
-import { useEffect, useState } from "react";
-import { ColorContext } from "./ColorContext";
+'use client';
+import { ADMIN_DEFAULT_THEME } from '@acme/constants';
+import type { ColorTheme } from '@acme/types';
+import { useEffect, useState } from 'react';
+import { ColorContext } from './ColorContext';
 
 export const ColorProvider = ({ children }: { children: React.ReactNode }) => {
   const [colors, setColors] = useState<ColorTheme>(ADMIN_DEFAULT_THEME);

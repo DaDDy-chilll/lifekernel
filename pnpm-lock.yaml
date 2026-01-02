@@ -208,6 +208,9 @@ importers:
       '@acme/constants':
         specifier: workspace:*
         version: link:../../packages/constants
+      '@acme/errors':
+        specifier: workspace:*
+        version: link:../../packages/errors
       '@acme/types':
         specifier: workspace:*
         version: link:../../packages/types
@@ -261,6 +264,12 @@ importers:
       '@acme/types':
         specifier: workspace:*
         version: link:../types
+    devDependencies:
+      typescript:
+        specifier: ^5.4.0
+        version: 5.9.3
+
+  packages/errors:
     devDependencies:
       typescript:
         specifier: ^5.4.0
