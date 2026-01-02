@@ -1,6 +1,6 @@
-import { AdminTheme } from "@acme/types";
+import { ColorTheme } from "@acme/types";
 
-export const ADMIN_DEFAULT_THEME: AdminTheme = {
+export const ADMIN_DEFAULT_THEME: ColorTheme = {
   radius: "0.625rem",
 
   background: "oklch(0.99 0.03 30)",

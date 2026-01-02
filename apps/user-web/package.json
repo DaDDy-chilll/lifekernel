@@ -12,6 +12,7 @@
     "@acme/api": "workspace:*",
     "@acme/types": "workspace:*",
     "@acme/ui": "workspace:*",
+    "@acme/constants": "workspace:*",
     "next": "16.1.1",
     "react": "19.2.3",
     "react-dom": "19.2.3"
