@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@acme/ui": "workspace:*",
+    "@acme/constants": "workspace:*",
+    "@acme/types": "workspace:*",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
