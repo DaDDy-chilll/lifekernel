@@ -1,1 +1,1 @@
-export * from "./admin-color.type";
+export * from "./color.type";

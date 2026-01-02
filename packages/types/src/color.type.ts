@@ -1,4 +1,4 @@
-export type AdminTheme = {
+export type ColorTheme = {
   radius: string;
 
   background: string;

@@ -10,9 +10,6 @@
   "files": ["src"],
   "exports": {
     ".": "./src/index.ts"
-  },
-  "dependencies": {
-    "@acme/types": "workspace:*"
   }
   
 }
