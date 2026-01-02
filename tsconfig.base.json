@@ -22,6 +22,7 @@
     /* Paths */
     "baseUrl": ".",
     "paths": {
+      "@/ui": ["packages/ui/src"],
       "@ui/*": ["packages/ui/src/*"],
       "@types/*": ["packages/types/src/*"],
       "@api/*": ["packages/api/src/*"],
