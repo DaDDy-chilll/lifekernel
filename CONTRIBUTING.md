@@ -14,12 +14,14 @@ Thank you for your interest in contributing to LifeKernel! This guide will help 
 ### Setup
 
 1. **Fork the repository**
+
    ```bash
    git clone <your-username>/lifekernel/
    cd LifeKernel
    ```
 
 2. **Install dependencies**
+
    ```bash
    pnpm install
    ```
@@ -85,6 +87,7 @@ chore: build process or auxiliary tool changes
 ```
 
 Examples:
+
 ```bash
 git commit -m "feat(admin): add user management dashboard"
 git commit -m "fix(mobile): resolve navigation issue"
@@ -237,20 +240,24 @@ We use Git hooks to ensure code quality:
 
 ```markdown
 ## Description
+
 Brief description of changes
 
 ## Type of Change
+
 - [ ] Bug fix
 - [ ] New feature
 - [ ] Breaking change
 - [ ] Documentation update
 
 ## Testing
+
 - [ ] Unit tests pass
 - [ ] Integration tests pass
 - [ ] Manual testing completed
 
 ## Checklist
+
 - [ ] Code follows style guidelines
 - [ ] Self-review completed
 - [ ] Documentation updated

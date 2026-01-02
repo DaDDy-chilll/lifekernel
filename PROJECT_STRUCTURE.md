@@ -352,6 +352,7 @@ packages/api/
 ### Root Configuration Files
 
 #### `package.json` (Root)
+
 ```json
 {
   "name": "lifekernel",
@@ -377,6 +378,7 @@ packages/api/
 ```
 
 #### `pnpm-workspace.yaml`
+
 ```yaml
 packages:
   - apps/*
@@ -386,6 +388,7 @@ nodeLinker: hoisted
 ```
 
 #### `turbo.json`
+
 ```json
 {
   "$schema": "https://turbo.build/schema.json",
@@ -396,11 +399,7 @@ nodeLinker: hoisted
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [
-        "dist/**",
-        ".next/**",
-        "build/**"
-      ]
+      "outputs": ["dist/**", ".next/**", "build/**"]
     },
     "lint": {}
   }
@@ -408,6 +407,7 @@ nodeLinker: hoisted
 ```
 
 #### `tsconfig.base.json`
+
 ```json
 {
   "compilerOptions": {

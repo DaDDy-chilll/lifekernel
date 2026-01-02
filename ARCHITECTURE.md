@@ -38,6 +38,7 @@ LifeKernel follows a **frontend-only monorepo** pattern using:
 ### User Web Application
 
 **Technology Stack:**
+
 - **Framework**: Next.js 16.1.1
 - **Rendering**: Server-Side Rendering (SSR) + Client-Side Rendering
 - **Styling**: Tailwind CSS v4
@@ -45,6 +46,7 @@ LifeKernel follows a **frontend-only monorepo** pattern using:
 - **Routing**: Next.js App Router
 
 **Architecture Patterns:**
+
 ```
 apps/user-web/
 ├── app/                    # Next.js App Router
@@ -58,6 +60,7 @@ apps/user-web/
 ```
 
 **Key Features:**
+
 - SEO optimization with SSR
 - Progressive Web App (PWA) capabilities
 - API routes for server-side logic
@@ -67,6 +70,7 @@ apps/user-web/
 ### Admin Web Application
 
 **Technology Stack:**
+
 - **Framework**: React 19.2.0 + Vite 7.2.4
 - **Build Tool**: Vite for fast development and building
 - **Styling**: Tailwind CSS v4
@@ -74,6 +78,7 @@ apps/user-web/
 - **Routing**: React Router (if needed)
 
 **Architecture Patterns:**
+
 ```
 apps/admin-web/
 ├── src/
@@ -87,6 +92,7 @@ apps/admin-web/
 ```
 
 **Key Features:**
+
 - Fast development server with HMR
 - Optimized build for production
 - Admin-specific UI patterns
@@ -96,6 +102,7 @@ apps/admin-web/
 ### Mobile Application
 
 **Technology Stack:**
+
 - **Framework**: Expo SDK ~54.0.30
 - **Core**: React Native 0.81.5
 - **Navigation**: Expo Router (file-based routing)
@@ -103,6 +110,7 @@ apps/admin-web/
 - **State Management**: React Hooks + Context API
 
 **Architecture Patterns:**
+
 ```
 apps/mobile/
 ├── app/                   # Expo Router file-based routing
@@ -117,6 +125,7 @@ apps/mobile/
 ```
 
 **Key Features:**
+
 - Cross-platform (iOS/Android/Web)
 - Native performance
 - Expo ecosystem integration
@@ -130,6 +139,7 @@ apps/mobile/
 **Purpose**: Reusable UI components across all applications
 
 **Architecture:**
+
 ```
 packages/ui/
 ├── src/
@@ -145,6 +155,7 @@ packages/ui/
 ```
 
 **Design Principles:**
+
 - **Component-driven**: Each component is self-contained
 - **Theme-agnostic**: Works with different styling systems
 - **Accessibility-first**: WCAG compliant components
@@ -156,6 +167,7 @@ packages/ui/
 **Purpose**: Shared TypeScript definitions across the monorepo
 
 **Architecture:**
+
 ```
 packages/types/
 ├── src/
@@ -167,6 +179,7 @@ packages/types/
 ```
 
 **Type Categories:**
+
 - **API Types**: Request/response interfaces
 - **Domain Types**: Business logic types
 - **UI Types**: Component prop types
@@ -177,6 +190,7 @@ packages/types/
 **Purpose**: Centralized API communication logic
 
 **Architecture:**
+
 ```
 packages/api/
 ├── src/
@@ -189,6 +203,7 @@ packages/api/
 ```
 
 **Features:**
+
 - **Type-safe**: Full TypeScript integration
 - **Caching**: Built-in caching strategies
 - **Error Handling**: Centralized error management
@@ -200,6 +215,7 @@ packages/api/
 ### Turbo Configuration
 
 **Pipeline Strategy:**
+
 ```json
 {
   "tasks": {
@@ -217,6 +233,7 @@ packages/api/
 ```
 
 **Build Order:**
+
 1. **Shared Packages** → Build first (dependencies)
 2. **Applications** → Build after dependencies
 3. **Parallel Execution** → Independent packages build in parallel
@@ -224,10 +241,12 @@ packages/api/
 ### Caching Strategy
 
 **Development:**
+
 - **Cache disabled** for dev servers (persistent processes)
 - **Hot Module Replacement** for fast iteration
 
 **Production:**
+
 - **Incremental builds** based on dependency graph
 - **Output caching** for faster rebuilds
 - **Docker layer caching** for containerized builds
@@ -237,22 +256,24 @@ packages/api/
 ### Tailwind CSS Integration
 
 **User/Admin Web:**
+
 ```javascript
 // tailwind.config.js
 module.exports = {
   content: [
     './src/**/*.{js,ts,jsx,tsx}',
-    '../../packages/ui/src/**/*.{js,ts,jsx,tsx}'
+    '../../packages/ui/src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
       // Custom theme extensions
-    }
-  }
-}
+    },
+  },
+};
 ```
 
 **Mobile (NativeWind):**
+
 ```javascript
 // nativewind.config.js
 module.exports = {
@@ -260,14 +281,15 @@ module.exports = {
   content: [
     './app/**/*.{js,jsx,ts,tsx}',
     './components/**/*.{js,jsx,ts,tsx}',
-    '../../packages/ui/src/**/*.{js,jsx,ts,tsx}'
-  ]
-}
+    '../../packages/ui/src/**/*.{js,jsx,ts,tsx}',
+  ],
+};
 ```
 
 ### Design System Architecture
 
 **Component Styling Strategy:**
+
 - **Utility-first**: Tailwind CSS for rapid development
 - **Component variants**: Configurable component styles
 - **Theme consistency**: Shared design tokens
@@ -278,19 +300,21 @@ module.exports = {
 ### Application State
 
 **User Web:**
+
 ```typescript
 // Server State
 - Next.js Server Components
 - React Server Components
 - API Routes
 
-// Client State  
+// Client State
 - React Context API
 - useState/useReducer hooks
 - Local component state
 ```
 
 **Admin Web:**
+
 ```typescript
 // Client State
 - React Context API
@@ -303,6 +327,7 @@ module.exports = {
 ```
 
 **Mobile:**
+
 ```typescript
 // Client State
 - React Context API
@@ -317,11 +342,13 @@ module.exports = {
 ### Data Flow Patterns
 
 **Unidirectional Data Flow:**
+
 ```
 API → State Management → Components → UI
 ```
 
 **Event Handling:**
+
 ```
 User Interaction → Event Handler → State Update → Re-render
 ```
@@ -331,16 +358,19 @@ User Interaction → Event Handler → State Update → Re-render
 ### Frontend Security Measures
 
 **Content Security Policy (CSP):**
+
 - Strict CSP headers
 - Inline script restrictions
 - External resource whitelisting
 
 **Authentication:**
+
 - JWT token management
 - Secure token storage
 - Automatic token refresh
 
 **Data Protection:**
+
 - Input validation
 - XSS prevention
 - CSRF protection
@@ -348,6 +378,7 @@ User Interaction → Event Handler → State Update → Re-render
 ### Environment Variables
 
 **Configuration Strategy:**
+
 ```bash
 # Public variables (client-side)
 NEXT_PUBLIC_API_URL=http://localhost:8000
@@ -363,12 +394,14 @@ JWT_SECRET=private
 ### Optimization Strategies
 
 **Bundle Optimization:**
+
 - **Code splitting**: Dynamic imports
 - **Tree shaking**: Dead code elimination
 - **Bundle analysis**: Size monitoring
 - **Compression**: Gzip/Brotli
 
 **Runtime Optimization:**
+
 - **Lazy loading**: Component lazy loading
 - **Image optimization**: Next.js Image, Expo Image
 - **Caching**: API response caching
@@ -377,6 +410,7 @@ JWT_SECRET=private
 ### Monitoring and Analytics
 
 **Performance Metrics:**
+
 - **Core Web Vitals**: LCP, FID, CLS
 - **Bundle Size**: Monitoring and alerts
 - **Load Times**: Page load performance
@@ -387,6 +421,7 @@ JWT_SECRET=private
 ### Client-Server Communication
 
 **API Client Design:**
+
 ```typescript
 // Base client configuration
 const apiClient = {
@@ -397,12 +432,13 @@ const apiClient = {
   },
   interceptors: {
     request: [authInterceptor, loggingInterceptor],
-    response: [errorInterceptor, responseInterceptor]
-  }
-}
+    response: [errorInterceptor, responseInterceptor],
+  },
+};
 ```
 
 **Data Fetching Patterns:**
+
 - **React Query/SWR**: Server state management
 - **Custom hooks**: Domain-specific data fetching
 - **Optimistic updates**: Better UX
@@ -413,16 +449,19 @@ const apiClient = {
 ### Testing Strategy
 
 **Unit Tests:**
+
 - **Component testing**: React Testing Library
 - **Utility testing**: Jest
 - **Type testing**: TypeScript compiler
 
 **Integration Tests:**
+
 - **API integration**: Mock servers
 - **Component integration**: Multi-component testing
 - **E2E testing**: Playwright/Cypress
 
 **Mobile Testing:**
+
 - **Unit tests**: Jest
 - **Component tests**: React Native Testing Library
 - **E2E tests**: Detox/Expo EAS
@@ -432,6 +471,7 @@ const apiClient = {
 ### Pipeline Design
 
 **Development Pipeline:**
+
 ```yaml
 # GitHub Actions workflow
 name: CI/CD Pipeline
@@ -458,6 +498,7 @@ jobs:
 ```
 
 **Deployment Strategy:**
+
 - **Preview deployments**: Pull request previews
 - **Staging environments**: Pre-production testing
 - **Production deployments**: Automated releases
@@ -467,11 +508,13 @@ jobs:
 ### Horizontal Scaling
 
 **Application Scaling:**
+
 - **CDN distribution**: Static asset delivery
 - **Edge computing**: Global deployment
 - **Load balancing**: Traffic distribution
 
 **Development Scaling:**
+
 - **Team collaboration**: Clear code ownership
 - **Feature flags**: Gradual feature rollout
 - **Modular architecture**: Independent development
@@ -479,6 +522,7 @@ jobs:
 ### Future Considerations
 
 **Potential Enhancements:**
+
 - **Micro-frontends**: Independent app deployments
 - **Server components**: Enhanced SSR capabilities
 - **WebAssembly**: Performance-critical features

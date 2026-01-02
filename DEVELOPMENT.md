@@ -33,6 +33,7 @@ pnpm dev
 ### VS Code Configuration
 
 **Recommended Extensions:**
+
 ```json
 {
   "recommendations": [
@@ -47,6 +48,7 @@ pnpm dev
 ```
 
 **Workspace Settings (`.vscode/settings.json`):**
+
 ```json
 {
   "typescript.preferences.importModuleSpecifier": "relative",
@@ -72,7 +74,7 @@ apps/user-web/.env.local
 NEXT_PUBLIC_API_URL=http://localhost:8000
 NEXT_PUBLIC_APP_ENV=development
 
-# Admin Web  
+# Admin Web
 apps/admin-web/.env.local
 VITE_API_URL=http://localhost:8000
 VITE_APP_ENV=development
@@ -88,18 +90,21 @@ EXPO_PUBLIC_APP_ENV=development
 ### User Web (Next.js)
 
 **Development Server:**
+
 ```bash
 pnpm start:user
 # Access: http://localhost:3000
 ```
 
 **Key Features:**
+
 - **App Router**: File-based routing in `app/` directory
 - **Server Components**: Automatic SSR for components
 - **API Routes**: Backend logic in `app/api/`
 - **Static Assets**: Optimized image and asset handling
 
 **Development Tips:**
+
 - Use `console.log` for debugging server components
 - Check Network tab for API requests
 - Use React DevTools for component debugging
@@ -108,18 +113,21 @@ pnpm start:user
 ### Admin Web (Vite + React)
 
 **Development Server:**
+
 ```bash
 pnpm start:admin
 # Access: http://localhost:5173
 ```
 
 **Key Features:**
+
 - **Fast HMR**: Instant hot module replacement
 - **Modern Build**: Optimized bundling with Rollup
 - **Plugin Ecosystem**: Extensive Vite plugin support
 - **Dev Tools**: Rich development tooling
 
 **Development Tips:**
+
 - Use Vite DevTools for bundle analysis
 - Enable source maps for debugging
 - Use `vite.config.ts` for custom configuration
@@ -128,18 +136,21 @@ pnpm start:admin
 ### Mobile (Expo/React Native)
 
 **Development Server:**
+
 ```bash
 pnpm start:mobile
 # Access: Expo Go app or http://localhost:8081 (web)
 ```
 
 **Key Features:**
+
 - **Cross-Platform**: iOS, Android, Web support
 - **Expo Router**: File-based navigation
 - **NativeWind**: Tailwind CSS for React Native
 - **Expo EAS**: Build and deployment services
 
 **Development Tips:**
+
 - Use Expo Go for quick testing
 - Use physical devices for performance testing
 - Check Expo DevTools for debugging
@@ -150,6 +161,7 @@ pnpm start:mobile
 ### Shared Packages Workflow
 
 **Development Workflow:**
+
 ```bash
 # 1. Work on shared package
 cd packages/ui
@@ -167,6 +179,7 @@ pnpm dev
 ```
 
 **Package Publishing (Internal):**
+
 ```bash
 # Update package version
 cd packages/ui
@@ -182,6 +195,7 @@ pnpm test
 ### UI Component Development
 
 **Component Structure:**
+
 ```
 packages/ui/src/components/
 ├── Button/
@@ -193,6 +207,7 @@ packages/ui/src/components/
 ```
 
 **Component Template:**
+
 ```typescript
 // packages/ui/src/components/Button/Button.tsx
 import React from 'react';
@@ -221,6 +236,7 @@ export const Button: React.FC<ButtonProps> = ({
 ### Unit Testing
 
 **Setup:**
+
 ```bash
 # Install testing dependencies (if needed)
 pnpm add -D jest @testing-library/react @testing-library/jest-dom
@@ -233,6 +249,7 @@ pnpm test --watch
 ```
 
 **Test Structure:**
+
 ```typescript
 // packages/ui/src/components/Button/Button.test.tsx
 import { render, screen } from '@testing-library/react';
@@ -255,6 +272,7 @@ describe('Button', () => {
 ### Integration Testing
 
 **E2E Testing Setup:**
+
 ```bash
 # Install Playwright
 pnpm add -D @playwright/test
@@ -264,17 +282,18 @@ pnpm test:e2e
 ```
 
 **E2E Test Example:**
+
 ```typescript
 // apps/user-web/e2e/user-journey.spec.ts
 import { test, expect } from '@playwright/test';
 
 test('user can navigate and interact', async ({ page }) => {
   await page.goto('/');
-  
+
   // Test navigation
   await page.click('[data-testid="nav-dashboard"]');
   await expect(page).toHaveURL('/dashboard');
-  
+
   // Test interaction
   await page.fill('[data-testid="search-input"]', 'test query');
   await page.click('[data-testid="search-button"]');
@@ -287,6 +306,7 @@ test('user can navigate and interact', async ({ page }) => {
 ### Tailwind CSS Workflow
 
 **Development Setup:**
+
 ```bash
 # Watch for CSS changes
 pnpm dev:css
@@ -296,6 +316,7 @@ pnpm build:css
 ```
 
 **Component Styling:**
+
 ```typescript
 // packages/ui/src/components/Button/Button.styles.ts
 import { cva } from 'class-variance-authority';
@@ -326,6 +347,7 @@ export const buttonStyles = cva(
 ### Mobile Styling (NativeWind)
 
 **Setup:**
+
 ```typescript
 // apps/mobile/nativewind.config.js
 module.exports = {
@@ -339,6 +361,7 @@ module.exports = {
 ```
 
 **Component Usage:**
+
 ```typescript
 // apps/mobile/components/Button.tsx
 import { View, Text } from 'react-native';
@@ -361,6 +384,7 @@ export const Button = ({ children, variant = 'primary' }) => {
 ### Common Issues
 
 **Module Resolution:**
+
 ```bash
 # Clear cache
 pnpm store prune
@@ -372,6 +396,7 @@ pnpm build
 ```
 
 **Metro Issues (Mobile):**
+
 ```bash
 # Clear Metro cache
 cd apps/mobile
@@ -382,6 +407,7 @@ npx expo install --fix
 ```
 
 **TypeScript Issues:**
+
 ```bash
 # Rebuild types
 pnpm build
@@ -393,18 +419,21 @@ npx tsc --noEmit
 ### Debugging Tools
 
 **Browser DevTools:**
+
 - React DevTools for component inspection
 - Redux DevTools for state debugging
 - Network tab for API requests
 - Console for error logging
 
 **Mobile Debugging:**
+
 - Expo DevTools for React Native debugging
 - Flipper for advanced debugging
 - Device logs for native issues
 - Simulator/Emulator debugging
 
 **VS Code Debugging:**
+
 ```json
 // .vscode/launch.json
 {
@@ -427,6 +456,7 @@ npx tsc --noEmit
 ### Development Performance
 
 **Turbo Caching:**
+
 ```bash
 # Check cache status
 pnpm turbo --force
@@ -436,6 +466,7 @@ pnpm turbo clean
 ```
 
 **Build Optimization:**
+
 ```bash
 # Analyze bundle size
 pnpm build --analyze
@@ -447,6 +478,7 @@ pnpm optimize:images
 ### Runtime Performance
 
 **React Optimization:**
+
 ```typescript
 // Use React.memo for expensive components
 const ExpensiveComponent = React.memo(({ data }) => {
@@ -465,6 +497,7 @@ const handleClick = useCallback((id: string) => {
 ```
 
 **Mobile Performance:**
+
 ```typescript
 // Use FlatList for long lists
 <FlatList
@@ -492,6 +525,7 @@ const handleClick = useCallback((id: string) => {
 ### Local Testing
 
 **Pre-commit Hooks:**
+
 ```bash
 # Install husky
 pnpm add -D husky
@@ -502,6 +536,7 @@ npx husky add .husky/pre-commit "pnpm lint && pnpm test"
 ```
 
 **Pipeline Testing:**
+
 ```bash
 # Test CI pipeline locally
 docker compose -f docker-compose.ci.yml up --build
@@ -513,6 +548,7 @@ pnpm lint && pnpm test && pnpm build
 ### Environment Management
 
 **Development Environments:**
+
 ```bash
 # Local development
 pnpm dev:local
