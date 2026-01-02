@@ -1,5 +1,1 @@
-export type User = {
-  id: string;
-  name: string;
-  role: "USER" | "ADMIN";
-};
+export * from "./admin-color.type";
