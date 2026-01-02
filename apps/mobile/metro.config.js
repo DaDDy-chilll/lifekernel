@@ -1,14 +1,23 @@
 const { getDefaultConfig } = require('expo/metro-config');
 const { withNativeWind } = require('nativewind/metro');
+const path = require('path');
 
-const config = getDefaultConfig(__dirname);
+const projectRoot = __dirname;
+const workspaceRoot = path.resolve(projectRoot, '../..');
 
-// Add custom resolver for @/* paths
-config.resolver.alias = {
-  '@': './',
-};
+const config = getDefaultConfig(projectRoot);
 
-// Add watch folders for components, hooks, and constants
-config.watchFolders = ['./components', './hooks', './constants'];
+// ✅ Extend watchFolders (DO NOT replace)
+config.watchFolders = [workspaceRoot, ...config.watchFolders];
 
-module.exports = withNativeWind(config, { input: './global.css' });
+// ✅ Ensure correct node_modules resolution (monorepo-safe)
+config.resolver.nodeModulesPaths = [
+  path.resolve(workspaceRoot, 'node_modules'),
+  path.resolve(projectRoot, 'node_modules'),
+];
+
+// ❌ REMOVE resolver.alias (handled by Babel instead)
+
+module.exports = withNativeWind(config, {
+  input: './global.css',
+});
